@@ -16,6 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+/*
 var app = {
     // Application Constructor
     initialize: function() {
@@ -42,5 +44,12 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+*/
 
-app.initialize();
+var f7 = new Framework7({
+  root: '#app',
+  name: 'Chroniker',
+  id: 'com.chroniker.test',
+  });
+var mainView = f7.views.create('.view-main');
+//app.initialize();
