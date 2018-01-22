@@ -1,18 +1,10 @@
-# Introduction
+# Contributing to Chroniker
 
-### Write something nice here!
+Thank you for considering contributing to Chroniker. Our team is so glad that you are thinking about being a part of this awesome project, and we welcome any contributions.
 
->First off, thank you for considering contributing to Active Admin. It's people like you that make Active Admin such a great tool.
+Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
 
-[source: [Active Admin](https://github.com/activeadmin/activeadmin/blob/master/CONTRIBUTING.md)] **Need more inspiration?** [1] [Read The Docs](http://read-the-docs.readthedocs.org/en/latest/contribute.html) [2] [Mustache.js](https://github.com/janl/mustache.js/#contributing)
-
-### Tell them why they should read your guidelines.
-
->Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
-
-[source: [Hoodie](https://github.com/hoodiehq/hoodie/blob/master/CONTRIBUTING.md)]
-
-### Explain what kinds of contributions you are looking for.
+### What We're Looking For
 
 Keep an open mind! Improving documentation, bug triaging, or writing tutorials are all examples of helpful contributions that mean less work for you.
 
@@ -20,7 +12,7 @@ Keep an open mind! Improving documentation, bug triaging, or writing tutorials a
 
 [source: [Elasticsearch](https://github.com/elastic/elasticsearch/blob/master/CONTRIBUTING.md)] **Need more inspiration?** [1] [Devise](https://github.com/plataformatec/devise/wiki/Contributing) [2] [Geocoder](https://github.com/alexreisner/geocoder#known-issue) (“known issue”)
 
-### Explain contributions you are NOT looking for (if any).
+### What We're Not Looking For
 
 Again, defining this up front means less work for you. If someone ignores your guide and submits something you don’t want, you can simply close it and point to your policy.
 
