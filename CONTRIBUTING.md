@@ -1,6 +1,6 @@
-# Contributing to Chroniker
+# Contributing to MediaSkrape
 
-Thank you for considering contributing to Chroniker. Our team is so glad that you are thinking about being a part of this awesome project, and we welcome any contributions.
+Thank you for considering contributing to MediaSkrape. Our team is so glad that you are thinking about being a part of this awesome project, and we welcome any contributions.
 
 Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
 
