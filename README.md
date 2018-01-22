@@ -71,7 +71,7 @@ Please read [CONTRIBUTING.md](https://github.com/jocelynshen/MediaSkrape/blob/ma
 
 ## Authors
 
-* **Jocelyn Shen** - *Initial work* - [Student](https://github.com/jocelynshen)
+* **Jocelyn Shen** - *Initial work* - [GitHub Profile](https://github.com/jocelynshen)
 
 See also the list of [contributors](https://github.com/jocelynshen/MediaSkrape/graphs/contributors) who participated in this project.
 
