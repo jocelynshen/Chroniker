@@ -30,15 +30,15 @@ Clone or Download Repository
 
 Create twitter app at [apps.twitter.com](apps.twitter.com)
 
-![alt text](https://github.com/jocelynshen/MediaSkrape/img/twitter_api_1.png "Create app")
+![alt text](https://github.com/jocelynshen/MediaSkrape/blob/master/img/twitter_api_1.png "Create app")
 
 Find consumer keys
 
-![alt text](https://github.com/jocelynshen/MediaSkrape/img/twitter_api_2.png "Consumer keys")
+![alt text](https://github.com/jocelynshen/MediaSkrape/blob/master/img/twitter_api_2.png "Consumer keys")
 
 Generate access tokens
 
-![alt text](https://github.com/jocelynshen/MediaSkrape/img/twitter_api_3.png "Access keys")
+![alt text](https://github.com/jocelynshen/MediaSkrape/blob/master/img/twitter_api_3.png "Access keys")
 
 Run twitter_skrape.py to generate your twitter account information
 
