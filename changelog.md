@@ -27,10 +27,8 @@
 
 ## 2018-02-01
 ### Added
-- 
+- Media class to store objects across social media platforms
 
 ### Changed
-- 
+- twitter_skrape.py to use tweepy
 
-### Fixed
-- 
