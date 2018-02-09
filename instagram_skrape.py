@@ -12,7 +12,7 @@
 ##############################################################################
 
 """
-This twitter_skrape.py script contains functions to pull your twitter data
+This instagram_skrape.py script contains functions to pull your instagram data
 
 Todo:
     * For module TODOs
