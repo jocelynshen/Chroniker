@@ -32,3 +32,8 @@
 ### Changed
 - twitter_skrape.py to use tweepy
 
+## 2018-02-06
+### Changed
+- updated cohesive readme
+- research into python-instagram for instagram api
+
