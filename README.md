@@ -24,7 +24,7 @@ pip install bs4
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+A step by step series of examples that tell you how to get a development env running
 
 Clone or Download Repository
 
