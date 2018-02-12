@@ -35,4 +35,3 @@ def function_with_types_in_docstring(param1, param2):
     """
 
 
-    """

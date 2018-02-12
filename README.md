@@ -42,6 +42,16 @@ Generate access tokens
 
 Run twitter_skrape.py to generate your twitter account information
 
+## Usage and Structure
+
+MediaSkrape currently collects three types of media:
+  1. tweets
+  2. instagram posts
+  3. facebook posts
+
+Each one has two fields: *image* and *text*. Either may be null.
+
+
 ## Built With
 
 * [Tweepy](http://www.tweepy.org/) - Used to gather account information from Twitter
