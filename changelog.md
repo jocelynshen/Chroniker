@@ -37,3 +37,6 @@
 - updated cohesive readme
 - research into python-instagram for instagram api
 
+## 2018-2-12
+### Added
+- started database integration

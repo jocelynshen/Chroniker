@@ -1,5 +1,8 @@
 import peewee
 from peewee import *
+import uuid
+from datetime import datetime
+from secrets import *
 
 '''
 Types of media:
@@ -15,10 +18,11 @@ Fields:
 '''
 
 class Media(Model):
-    media_type = FixedCharField() # one of t, f, i
+    media_type = FixedCharField(constraints=[Check('media_type in ["t", "f", "i"]')]) # one of t, f, i
     text = TextField(null=True, default='')
     image = BlobField(null=True, default=None) # TODO: handle multiple images
-    uuid = UUIDField()
+    time_posted = DateTimeField()
+    uuid = UUIDField(default=uuid.uuid4, unique=True)
 
     class Meta:
-        database = msdb
+        database = MySQLDatabase('mediaskrape', user='mediaskrape', passwd=MS_PASSWORD, field_types={'image':'image'}) #msdb

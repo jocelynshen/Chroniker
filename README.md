@@ -51,6 +51,8 @@ MediaSkrape currently collects three types of media:
 
 Each one has two fields: *image* and *text*. Either may be null.
 
+TODO: add more
+
 
 ## Built With
 
