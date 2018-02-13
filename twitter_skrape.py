@@ -16,11 +16,20 @@ This twitter_skrape.py script contains functions to pull your twitter data
 
 Todo:
     * For module TODOs
+
+
+Methods to implement:
+- get tweet by \date(range)?\
+    - extract image, text
+
+
+
 """
 
 import tweepy
 from Media import Media
 import datetime
+from datetime import datetime
 import time
 import requests
 import re
@@ -30,15 +39,35 @@ import urllib.parse
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-def get_user_info():
-    c_key = input("Consumer key: ")
-    c_secret = input("Consumer secret: ")
-    a_key = input("Access token: ")
-    a_secret = input("Access token secret: ")
-    auth = tweepy.OAuthHandler(c_key, c_secret, "https://google.com")
-    auth.set_access_token(a_key, a_secret)
-    api = tweepy.API(auth)
-    return api
+
+class TwitterAccessor():
+    def __init__(self, keyfile):
+        with open("twitter_keys.txt", "r") as f:
+            consumer_key = f.readline().strip()
+            consumer_secret = f.readline().strip()
+            access_token = f.readline().strip()
+            access_token_secret = f.readline().strip()
+        auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+        auth.set_access_token(access_token, access_token_secret)
+        self.api = tweepy.API(auth)
+
+    def get_tweets_in_date_range(self, start, end):
+        # tweets = self.api.user_timeline()
+        tweets = tweepy.Cursor(self.api.user_timeline).items()
+        return []
+
+    def clean_tweet(self, tweet):
+        text = re.sub(' https://t.co/[A-Za-z0-9]{10}', '', tweet.text)
+        try:
+            # tweet.entities['media']
+            images = [t for t in tweet.entities['media'] if t['type']=='photo']
+        except:
+            images = []
+        time_posted = tweet.created_at #datetime.strptime(tweet.created_at, "%a %b %d %H:%M:%S %z %Y")
+        return {'time':time_posted, 'text':text, 'images':images}
+
+
+# ====================================================================
 
 def get_my_info(api):
     return 'My information:' + str(api.me().name)
@@ -74,7 +103,7 @@ def get_tweet_images(api, username):
     tweets = api.user_timeline(username)
     for tweet in tweets:
         name = str(tweet.created_at)
-        print(name)
+        print(name, tweet.text.encode('utf-8'), "\n")
         find_src = re.search("(?P<url>https?://[^\s]+)", str(tweet.text.encode('utf-8')))
         if find_src is not None:
             print(find_src.group('url'))
@@ -90,29 +119,3 @@ def unshorten_url(url):
     resp = session.head(url, allow_redirects=True)
     return resp.url
 
-# def get_tweets(url):
-#     r = requests.get(url)
-#     data = r.text.encode('utf-8')
-#     soup = BeautifulSoup(data, 'html.parser')
-#     tweets = [p.text.encode('utf-8') for p in soup.findAll('p', class_ = 'tweet-text')]
-#     print(tweets)
-#     return tweets
-
-# def get_tweet_images(tweets):
-#     tweet_images = []
-#     for i in range(0, len(tweets)):
-#         tweet = str(tweets[i])
-#         print(re.search("(?P<url>https?://[^\s]+)", tweet).group("url"))
-#         if tweet.contains("pic.twitter.com"):
-#             tweet_images.add(tweets[i])
-#     unshortened_url = unshorten_url("http://pic.twitter.com/h7Hf2STehM")
-#     html = urlopen(unshortened_url)
-#     bsObj = BeautifulSoup(html.read());
-#     for link in bsObj.find_all('img'):
-#         print(link.get('src'))
-#     #urllib.request.urlretrieve("https://pbs.twimg.com/media/DPNbUiJUEAAiOra.jpg", "twitter1.jpg")
-
-api = get_user_info()
-dates, tweets_timestamped = get_tweets_by_date(api, 'jocelyn_j_shen')
-print([str(x) for x in build_media_objects(dates, tweets_timestamped)])
-get_tweet_images(api, 'jocelyn_j_shen')
