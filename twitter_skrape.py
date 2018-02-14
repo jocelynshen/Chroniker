@@ -60,7 +60,7 @@ class TwitterAccessor():
         text = re.sub(' https://t.co/[A-Za-z0-9]{10}', '', tweet.text)
         try:
             # tweet.entities['media']
-            images = [t for t in tweet.entities['media'] if t['type']=='photo']
+            images = [t['media_url'] for t in tweet.entities['media'] if t['type']=='photo']
         except:
             images = []
         time_posted = tweet.created_at #datetime.strptime(tweet.created_at, "%a %b %d %H:%M:%S %z %Y")
