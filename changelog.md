@@ -40,3 +40,7 @@
 ## 2018-2-12
 ### Added
 - started database integration
+
+## 2018-2-13
+### Changed
+- twitter_scrape.py
