@@ -27,8 +27,4 @@ class Media(Model):
     uuid = UUIDField(default=uuid.uuid4, unique=True)
 
     class Meta:
-        database = MySQLDatabase('mediaskrape', user='mediaskrape', passwd=MS_PASSWORD, field_types={'image':'image'}) #msdb
-
-# class Media():
-#     def __init__(self):
-#         pass
+        database = MySQLDatabase('mediaskrape', user='mediaskrape', passwd=MS_PASSWORD, field_types={'image':'image'})

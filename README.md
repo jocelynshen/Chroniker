@@ -49,9 +49,9 @@ MediaSkrape currently collects three types of media:
   2. instagram posts
   3. facebook posts
 
-Each one has two fields: *image* and *text*. Either may be null.
+Media is stored in a database with fields `media_type`, `text`, `image`, `time_posted`, and `uuid`.
 
-TODO: add more
+Either `image` or `text` may be null.
 
 
 ## Built With
