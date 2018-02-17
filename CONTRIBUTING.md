@@ -10,7 +10,7 @@ Improving documentation, bug triaging, or writing tutorials.
 
 
 # Ground Rules
-### Set expectations for behavior (yours, and theirs).
+### Expectations for behavior
 * Create issues for any major changes and enhancements that you wish to make. Discuss things transparently and get community feedback.
 * Don't add any classes to the codebase unless absolutely needed. Err on the side of using functions.
 * Keep feature versions as small as possible, preferably one new feature per version.
@@ -25,7 +25,7 @@ Some tutorials you can take a look at for your first contribution:
 * [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github).
 
 # Getting started
-### Give them a quick walkthrough of how to submit a contribution.
+### A quick walkthrough of how to submit a contribution.
 For something that is bigger than a one or two line fix:
 
 * Create your own fork of the code
@@ -47,6 +47,6 @@ In order to determine whether you are dealing with a security issue, ask yoursel
 * Can I access something that's not mine, or something I shouldn't have access to?
 * Can I disable something for other people?
 
-If the answer to either of those two questions are "yes", then you're probably dealing with a security issue. Note that even if you answer "no" to both questions, you may still be dealing with a security issue, so if you're unsure, just email us at security@travis-ci.org.
+If the answer to either of those two questions are "yes", then you're probably dealing with a security issue. Note that even if you answer "no" to both questions, you may still be dealing with a security issue, so if you're unsure, just email us at jocelynshenbb@gmail.com.
 
 If you find yourself wishing for a feature that doesn't exist in MediaSkrape, you are probably not alone. There are bound to be others out there with similar needs. Many of the features that MediaSkrape has today have been added because our users saw the need. Open an issue on our issues list on GitHub which describes the feature you would like to see, why you need it, and how it should work.
