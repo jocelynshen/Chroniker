@@ -51,4 +51,4 @@
 
 ## 2018-2-16
 ### Done
-- research into instagram api
+- research into instagram api, initial functionality
