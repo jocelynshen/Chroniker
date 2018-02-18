@@ -24,7 +24,7 @@ pip install bs4
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+A step by step series of examples that tell you how to get a development env running
 
 Clone or Download Repository
 
@@ -41,6 +41,18 @@ Generate access tokens
 ![alt text](https://github.com/jocelynshen/MediaSkrape/blob/master/img/twitter_api_3.png "Access keys")
 
 Run twitter_skrape.py to generate your twitter account information
+
+## Usage and Structure
+
+MediaSkrape currently collects three types of media:
+  1. tweets
+  2. instagram posts
+  3. facebook posts
+
+Media is stored in a database with fields `media_type`, `text`, `image`, `time_posted`, and `uuid`.
+
+Either `image` or `text` may be null.
+
 
 ## Built With
 

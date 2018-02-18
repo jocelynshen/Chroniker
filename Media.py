@@ -1,16 +1,30 @@
-"""Each media object holds the type of media, the date that media was created, and the contents """
-class Media:
-    def __init__(self, media_type, date, contents):
-        self.media_type = media_type
-        self.date = date
-        self.contents = contents
+import peewee
+from peewee import *
+import uuid
+from datetime import datetime
+from secrets import *
 
-    def get_contents():
-        return self.contents
+'''
+Types of media:
+- tweet
+- instagram post
+- facebook post
+(these are to start with)
 
-    def set_contents(data):
-        self.contents = data
-        return self.contents
-        
-    def __str__(self):
-        return "Type: " + str(self.media_type) + "; Date: " + str(self.date) + "; Contents: " + str(self.contents)
+Fields:
+- text
+- image
+
+'''
+
+class Media(Model):
+    # media_type = FixedCharField(constraints=[Check('media_type in ["t", "f", "i"]')]) # one of t, f, i
+    media_type = FixedCharField()
+    text = TextField(null=True, default='')
+    # image = BlobField(null=True) # TODO: handle multiple images
+    image=TextField(null=True) # just hold the urls for now
+    time_posted = DateTimeField()
+    uuid = UUIDField(default=uuid.uuid4, unique=True)
+
+    class Meta:
+        database = MySQLDatabase('mediaskrape', user='mediaskrape', passwd=MS_PASSWORD, field_types={'image':'image'})

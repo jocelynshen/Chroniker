@@ -112,7 +112,7 @@ def unshorten_url(url):
 #         print(link.get('src'))
 #     #urllib.request.urlretrieve("https://pbs.twimg.com/media/DPNbUiJUEAAiOra.jpg", "twitter1.jpg")
 
-api = get_user_info()
-dates, tweets_timestamped = get_tweets_by_date(api, 'jocelyn_j_shen')
-print([str(x) for x in build_media_objects(dates, tweets_timestamped)])
-get_tweet_images(api, 'jocelyn_j_shen')
+# api = get_user_info()
+# dates, tweets_timestamped = get_tweets_by_date(api, 'jocelyn_j_shen')
+# print([str(x) for x in build_media_objects(dates, tweets_timestamped)])
+# get_tweet_images(api, 'jocelyn_j_shen')

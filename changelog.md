@@ -37,3 +37,18 @@
 - updated cohesive readme
 - research into python-instagram for instagram api
 
+## 2018-2-12
+### Added
+- started database integration
+
+## 2018-2-13
+### Changed
+- twitter_scrape.py
+
+## 2018-2-15
+### Changed
+- database integration is working
+
+## 2018-2-16
+### Done
+- research into instagram api

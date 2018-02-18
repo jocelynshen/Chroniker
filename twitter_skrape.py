@@ -16,11 +16,19 @@ This twitter_skrape.py script contains functions to pull your twitter data
 
 Todo:
     * For module TODOs
+
+
+Methods to implement:
+- get tweet by \date(range)?\
+    - extract image, text
+
 """
 
 import tweepy
 from Media import Media
+from db_handler import DB_Handler
 import datetime
+from datetime import datetime
 import time
 import requests
 import re
@@ -30,89 +38,50 @@ import urllib.parse
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-def get_user_info():
-    c_key = input("Consumer key: ")
-    c_secret = input("Consumer secret: ")
-    a_key = input("Access token: ")
-    a_secret = input("Access token secret: ")
-    auth = tweepy.OAuthHandler(c_key, c_secret, "https://google.com")
-    auth.set_access_token(a_key, a_secret)
-    api = tweepy.API(auth)
-    return api
 
-def get_my_info(api):
-    return 'My information:' + str(api.me().name)
+class TwitterAccessor():
+    def __init__(self, keyfile="twitter_keys.txt"):
+        with open(keyfile, "r") as f:
+            consumer_key = f.readline().strip()
+            consumer_secret = f.readline().strip()
+            access_token = f.readline().strip()
+            access_token_secret = f.readline().strip()
+        auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+        auth.set_access_token(access_token, access_token_secret)
+        self.api = tweepy.API(auth)
+        self.dbhandler = DB_Handler()
 
-def get_friend_names(api):
-    friends = []
-    for friend in tweepy.Cursor(api.friends).items():
-        friends.append(str(friend.name))
-    return 'My friends:' + str(friends)
+    def clean_tweet(self, tweet):
+        text = re.sub(' https://t.co/[A-Za-z0-9]{10}', '', tweet.text)
+        try:
+            images = [t['media_url'] for t in tweet.entities['media'] if t['type']=='photo']
+        except:
+            images = []
+        time_posted = tweet.created_at #datetime.strptime(tweet.created_at, "%a %b %d %H:%M:%S %z %Y")
+        return {'time':time_posted, 'text':text, 'images':images}
 
-def get_tweets_by_date(api, username):
-    tweets = api.user_timeline(username)
-    dates = []
-    for tweet in tweets:
-        if str(tweet.created_at)[0:10] not in dates:
-            dates.append(str(tweet.created_at)[0:10])
-    tweets_timestamped = []
-    for date in dates:
-        a = []
-        for tweet in tweets:
-            if str(tweet.created_at)[0:10] == str(date):
-                a.append(tweet.text.encode('utf-8'))
-        tweets_timestamped.append(a)
-    return dates, tweets_timestamped
+    def get_clean_tweets_in_date_range(self, start, end):
+        tweets = tweepy.Cursor(self.api.user_timeline).items()
+        return [self.clean_tweet(t) for t in tweets if self.clean_tweet(t)['time'] > start and self.clean_tweet(t)['time'] < end]
 
-def get_my_tweets(api):
-    tweets = []
-    for t in tweepy.Cursor(api.user_timeline).items():
-        tweets.append(str(t.text.encode("utf-8")))
-    return tweets
+    def get_tweets_in_date_range(self, start, end):
+        tweets = tweepy.Cursor(self.api.user_timeline).items()
+        return [t for t in tweets if clean_tweet(t)['time'] > start and clean_tweet(t)['time'] < end]
 
-def get_tweet_images(api, username):
-    tweets = api.user_timeline(username)
-    for tweet in tweets:
-        name = str(tweet.created_at)
-        print(name)
-        find_src = re.search("(?P<url>https?://[^\s]+)", str(tweet.text.encode('utf-8')))
-        if find_src is not None:
-            print(find_src.group('url'))
+    def get_my_info(self):
+        return self.api.me()
 
-def build_media_objects(dates, tweets_timestamped):
-    media_objects = []
-    for i in range(0, len(dates)):
-        media_objects.append(Media('Twitter', dates[i], tweets_timestamped[i]))
-    return media_objects
+    def get_friend_names(self):
+        friends = []
+        for friend in tweepy.Cursor(self.api.friends).items():
+            friends.append(str(friend.name))
+        return friends
 
-def unshorten_url(url):
-    session = requests.Session()  # so connections are recycled
-    resp = session.head(url, allow_redirects=True)
-    return resp.url
+    def get_my_tweets(self):
+        tweets = tweepy.Cursor(self.api.user_timeline).items()
+        return [t for t in tweets]
 
-# def get_tweets(url):
-#     r = requests.get(url)
-#     data = r.text.encode('utf-8')
-#     soup = BeautifulSoup(data, 'html.parser')
-#     tweets = [p.text.encode('utf-8') for p in soup.findAll('p', class_ = 'tweet-text')]
-#     print(tweets)
-#     return tweets
+    def add_to_database(self, tweet):
+        self.dbhandler.add_media('t', time_posted=tweet['time'], text=tweet['text'], image=None) # update this (!)
 
-# def get_tweet_images(tweets):
-#     tweet_images = []
-#     for i in range(0, len(tweets)):
-#         tweet = str(tweets[i])
-#         print(re.search("(?P<url>https?://[^\s]+)", tweet).group("url"))
-#         if tweet.contains("pic.twitter.com"):
-#             tweet_images.add(tweets[i])
-#     unshortened_url = unshorten_url("http://pic.twitter.com/h7Hf2STehM")
-#     html = urlopen(unshortened_url)
-#     bsObj = BeautifulSoup(html.read());
-#     for link in bsObj.find_all('img'):
-#         print(link.get('src'))
-#     #urllib.request.urlretrieve("https://pbs.twimg.com/media/DPNbUiJUEAAiOra.jpg", "twitter1.jpg")
 
-api = get_user_info()
-dates, tweets_timestamped = get_tweets_by_date(api, 'jocelyn_j_shen')
-print([str(x) for x in build_media_objects(dates, tweets_timestamped)])
-get_tweet_images(api, 'jocelyn_j_shen')
