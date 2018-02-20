@@ -50,5 +50,5 @@
 - database integration is working
 
 ## 2018-2-16
-### Done
-- research into instagram api
+### Added
+- research into instagram api, initial functionality
