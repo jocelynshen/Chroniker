@@ -66,7 +66,7 @@ class TwitterAccessor():
 
     def get_tweets_in_date_range(self, start, end):
         tweets = tweepy.Cursor(self.api.user_timeline).items()
-        return [t for t in tweets if clean_tweet(t)['time'] > start and clean_tweet(t)['time'] < end]
+        return [t for t in tweets if self.clean_tweet(t)['time'] > start and self.clean_tweet(t)['time'] < end]
 
     def get_my_info(self):
         return self.api.me()
