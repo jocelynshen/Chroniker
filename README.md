@@ -14,6 +14,7 @@ What things you need to install the software and how to install them
 
 ```
 pip install tweepy
+pip install tqdm
 pip install python-instagram
 pip install datetime
 pip install requests
@@ -23,6 +24,8 @@ pip install bs4
 ```
 
 ### Installing
+
+Install MySQL [here](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
 
 A step by step series of examples that tell you how to get a development env running
 
