@@ -15,6 +15,8 @@ What things you need to install the software and how to install them
 ```
 pip install tweepy
 pip install tqdm
+pip install peewee
+pip install facebook-sdk
 pip install python-instagram
 pip install datetime
 pip install requests

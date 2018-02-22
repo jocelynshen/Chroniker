@@ -52,3 +52,11 @@
 ## 2018-2-16
 ### Done
 - research into instagram api
+
+## 2018-2-19
+### Added
+- integrate Facebook api
+
+## 2018-2-22
+### Added
+- initial methods for integrating facebook
