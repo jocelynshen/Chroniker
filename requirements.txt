@@ -1,0 +1,10 @@
+tweepy
+tqdm
+peewee
+facebook-sdk
+python-instagram
+datetime
+requests
+urllib3
+httplib2
+bs4
