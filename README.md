@@ -13,16 +13,7 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-pip install tweepy
-pip install tqdm
-pip install peewee
-pip install facebook-sdk
-pip install python-instagram
-pip install datetime
-pip install requests
-pip install urllib3
-pip install httplib2
-pip install bs4
+pip install -r requirements.txt
 ```
 
 ### Installing
