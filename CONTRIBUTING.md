@@ -50,3 +50,5 @@ In order to determine whether you are dealing with a security issue, ask yoursel
 If the answer to either of those two questions are "yes", then you're probably dealing with a security issue. Note that even if you answer "no" to both questions, you may still be dealing with a security issue, so if you're unsure, just email us at jocelynshenbb@gmail.com.
 
 If you find yourself wishing for a feature that doesn't exist in MediaSkrape, you are probably not alone. There are bound to be others out there with similar needs. Many of the features that MediaSkrape has today have been added because our users saw the need. Open an issue on our issues list on GitHub which describes the feature you would like to see, why you need it, and how it should work.
+
+Citations: https://github.com/nayafia/contributing-template/blob/master/CONTRIBUTING-template.md
